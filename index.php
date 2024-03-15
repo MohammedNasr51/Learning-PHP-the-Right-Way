@@ -241,24 +241,49 @@ $nums=[1,2,3,4,5,6,7,8,9];
 var_dump(foo(...$nums));*/
 /**********************************************************************/
 // first Task 21 days late
-function fetch_file_content($fileName):void
-{
-    $file=fopen($fileName,'r');
-    while (($line=fgets($file))!== false) echo '<strong>'.$line . '</strong> '.'<br>';
-    fclose($file);
-}
-function replace_file_content($fileName):void{
-if (file_exists($fileName)){
-    echo 'File content before updating : <br>';
-    fetch_file_content($fileName);
-    file_put_contents($fileName,'sorry for being late');
-    echo 'File content after updating : <br>';
-    fetch_file_content($fileName);
-    return;
-}
-    echo 'Enter another file<br>';
-}
-replace_file_content('textFile.txt');
+//function fetch_file_content($fileName):void
+//{
+//    $file=fopen($fileName,'r');
+//    while (($line=fgets($file))!== false) echo '<strong>'.$line . '</strong> '.'<br>';
+//    fclose($file);
+//}
+//function replace_file_content($fileName):void{
+//if (file_exists($fileName)){
+//    echo 'File content before updating : <br>';
+//    fetch_file_content($fileName);
+//    file_put_contents($fileName,'sorry for being late');
+//    echo 'File content after updating : <br>';
+//    fetch_file_content($fileName);
+//    return;
+//}
+//    echo 'Enter another file<br>';
+//}
+//replace_file_content('textFile.txt');
+/*********************************************************************************/
+// comparison between sessions and cookies :
+/*
+ * => sessions : used in server side
+ * the developer starts it and it ends when the browser is closed
+ * used to store sensitive data
+ *
+ * => cookies : stores in client device
+ * used to cash some information to reduce the amount of server requests
+ * developer can modify its expiration time
+ * it sent back and forth between the client and the server with each HTTP request and response
+ * */
+//session create =>
+session_start();
+$_SESSION['username'] = 'monasr';
+$_SESSION['email'] = 'monasr@someEmail.com';
+//session dump =>
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+
+//cookies create =>
+setcookie('username', 'monasr', time() + (3*3600), '/');
+//cookies dump =>
+# you can dump it from your browser in inspect  to the "Storage" or "Application" tab. You should see a section for cookies where you can view the cookies set by the current website
 echo "<br>";
 echo "<br>";
 echo "<br>";
